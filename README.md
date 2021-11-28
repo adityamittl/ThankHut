@@ -43,3 +43,4 @@ Sending the thank you note via email to other people who helped you.
 ## 🚀 What's next for ThankHut
 
 - Improving the accuracy of the models.
+- Add more features.

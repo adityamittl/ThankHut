@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -244,7 +244,7 @@
             width: 300px;
             padding: 40px;
             position: absolute;
-            top: 50%;
+            margin-top: 10px;
             left: 50%;
             transform: translate(-50%, -50%);
             background: #191919;
@@ -258,7 +258,8 @@
             font-weight: 500;
         }
 
-        .box input[type="text"] {
+        .box input[type="text"],
+        input[type="email"] {
             border: 0;
             background: none;
             display: block;
@@ -273,13 +274,15 @@
             transition: 0.25s;
         }
 
-        .box input[type="text"]:focus {
+        .box input[type="text"]:focus,
+        input[type="email"]:focus {
             width: 280px;
             border-color: #2ecc71;
             margin-left: -30px;
         }
 
-        .box input[type="submit"] {
+        .box input[type="submit"],
+        button {
             border: 0;
             background: none;
             display: block;
@@ -296,6 +299,24 @@
 
         .box input[type="submit"]:hover {
             background: #2ecc71;
+        }
+
+        .image {
+            margin-top: 880px;
+            margin-bottom: 50px;
+        }
+
+        #thank_you_name {
+            position: absolute;
+            padding-top: 780px;
+            margin-left: -25px;
+            font-size: 25px;
+        }
+
+        #thank_you_note {
+            position: absolute;
+            padding-top: 830px;
+            font-size: 20px;
         }
     </style>
     <div class="sidebar">
@@ -334,20 +355,50 @@
         </ul>
     </div>
     <section class="home-section">
-        <form class="box" action="index.html" method="post">
+
+        <div class="box">
 
             <h1>Thank you Note</h1>
 
-            <input type="text" name="" placeholder="Name">
+            <input type="text" name="" id='id1' placeholder="Name">
 
             <input type="email" name="" placeholder="Receiver's Email">
 
-            <input type="text" name="" placeholder="Thank you note">
+            <input type="text" name="" id='id2' placeholder="Thank you note">
+
+            <button onclick="gfg_Run()">
+                Generate Thank you Card
+            </button>
 
             <input type="submit" name="" value="Send">
 
-        </form>
+        </div>
+
+        <img class="image"
+            src="https://previews.123rf.com/images/katyakatya/katyakatya1606/katyakatya160600017/57990959-vertical-floral-thank-you-card-template-.jpg"
+            alt="" width="500" height="700">
+
+        <p id="thank_you_name"></p>
+        <p id="thank_you_note"></p>
+
     </section>
+
+    <script>
+        var el_up = document.getElementById("thank_you_name");
+        var inputF = document.getElementById("id1");
+
+        var el_down = document.getElementById("thank_you_note");
+        var inputS = document.getElementById("id2");
+
+        function gfg_Run() {
+            inputF.setAttribute('value', 'defaultValue');
+            el_up.innerHTML = "Dear, " + inputF.value;
+
+            inputS.setAttribute('value', 'defaultValue');
+            el_down.innerHTML = inputS.value;
+
+        }
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
